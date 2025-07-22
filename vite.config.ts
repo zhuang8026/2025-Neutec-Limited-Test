@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     console.log('start env:', mode); // 網頁不會顯示，會顯示 cmd 中
 
     return {
-        base: '/vue-squares/',
+        base: '/2025-Neutec-Limited-Test/',
         plugins: [vue(), svgLoader()],
         resolve: {
             alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
