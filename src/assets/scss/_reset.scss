@@ -42,9 +42,9 @@ html {
 input,
 select,
 textarea {
-    border: none;
-    -webkit-appearance: none; // 清除内阴影
-    -webkit-user-select: auto !important; // 否则ios下输入框无法输入
+    // border: none;
+    // -webkit-appearance: none; // 清除内阴影
+    // -webkit-user-select: auto !important; // 否则ios下输入框无法输入
 }
 
 textarea {
@@ -151,7 +151,7 @@ sub {
 // }
 
 svg {
-    width: 24px;
+    width: 100%;
     height: auto;
     fill: $black_gray_o5;
 }
