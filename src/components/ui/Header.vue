@@ -3,7 +3,7 @@
         <div class="title">用電追蹤</div>
         <div class="h-items">
             <div class="info" @click="">
-                <Warning class="svg_icon" />
+                <!-- <Warning class="svg_icon" /> -->
                 提示
             </div>
 
@@ -36,7 +36,7 @@
     import { useRouter } from 'vue-router';
 
     // api
-    import { logout } from '@/api/apiClient';
+    // import { logout } from '@/api/apiClient';
 
     // utils
     import { openLoading, closeLoading } from '@/utils/useLoading';
@@ -46,7 +46,7 @@
     import { useUserStore } from '@/stores/user';
 
     // svg
-    import Warning from '@/assets/images/warning.svg';
+    // import Warning from '@/assets/images/warning.svg';
 
     const router = useRouter();
     const userStore = useUserStore();
@@ -69,15 +69,15 @@
     };
 
     const apiLogout = async () => {
-        openLoading();
-        let res = await logout();
-        console.log(res);
-        if (res.code == 200) {
-            eraseCookie('token'); // cookies 寫法
-            userStore.logout(); // pinia 寫法
-            router.push('/login');
-            closeLoading();
-        }
+        // openLoading();
+        // let res = await logout();
+        // console.log(res);
+        // if (res.code == 200) {
+        //     eraseCookie('token'); // cookies 寫法
+        //     userStore.logout(); // pinia 寫法
+        //     router.push('/login');
+        //     closeLoading();
+        // }
     };
 </script>
 

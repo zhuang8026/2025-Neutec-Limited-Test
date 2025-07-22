@@ -25,7 +25,7 @@
         </div>
         <div class="upgrade">
             <div class="u-list logout">
-                <Star />
+                <!-- <Star /> -->
                 升級方案
             </div>
             <div class="u-list text-xs">擁有更多最佳模型的存取權限</div>
@@ -45,7 +45,7 @@
     // import { eraseCookie } from '@/utils/cookie';
 
     // svg
-    import Star from '@/assets/images/star.svg';
+    // import Star from '@/assets/images/star.svg';
 
     const items = ref([
         { name: '用電追蹤', path: '/' },
