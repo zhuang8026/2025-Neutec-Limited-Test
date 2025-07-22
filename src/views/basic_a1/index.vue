@@ -1,6 +1,10 @@
 <template>
     <div class="basic-a1">
-        <div class="square-view" :style="{ gridTemplateColumns: `repeat(${squareCols}, 1fr)` }">
+        <div
+            class="square-view"
+            :key="selected"
+            :style="{ gridTemplateColumns: `repeat(${squareCols}, 1fr)` }"
+        >
             <Square v-for="(num, index) in squareCount" :key="index" />
         </div>
 

@@ -76,7 +76,7 @@
             width: 100%;
             height: 100%;
             border-radius: 8px;
-            border: 4px solid #777;
+            border: 3px solid #777; // 3, 4
             overflow: hidden;
         }
 
@@ -85,8 +85,8 @@
             top: 0;
             left: 0;
             z-index: 3;
-            width: 20px;
-            height: 4px;
+            width: 15%; // 4,20
+            height: 3px; // 3,4
             background-color: white;
             border-radius: 4px;
 
