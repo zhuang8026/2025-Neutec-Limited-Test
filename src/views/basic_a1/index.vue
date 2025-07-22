@@ -2,7 +2,7 @@
     <div class="basic-a1">
         <div
             class="square-view"
-            :key="selected"
+            :key="radio"
             :style="{ gridTemplateColumns: `repeat(${squareCols}, 1fr)` }"
         >
             <Square v-for="(value, index) in squareList" :key="index" :status="value" />
@@ -70,9 +70,10 @@
                 if (Math.random() < 0.5) squareList.value[index] = 'stop';
             });
         } else {
-            squareList.value.forEach((val, index) => {
-                if (Math.random() < 0.5) squareList.value[index] = 'normal';
-            });
+            // squareList.value.forEach((val, index) => {
+            //     squareList.value[index] = 'normal';
+            // });
+            squareCount();
         }
     };
 
