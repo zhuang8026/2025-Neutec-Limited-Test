@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     console.log('start env:', mode); // 網頁不會顯示，會顯示 cmd 中
 
     return {
-        base: './',
+        base: '/vue-squares/',
         plugins: [vue(), svgLoader()],
         resolve: {
             alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
