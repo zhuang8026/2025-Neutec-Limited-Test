@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <h1>©2025鳳梨蘋果派股份有限公司</h1>
+        <h1>vue 3.5.13 / vite 6.3.5</h1>
     </footer>
 </template>
 
@@ -9,6 +9,8 @@
     @use '@/assets/scss/_forward' as *;
 
     footer {
+        position: fixed;
+        bottom: 0;
         width: 100%;
         padding: 10px 0;
         font-size: 0.75rem;

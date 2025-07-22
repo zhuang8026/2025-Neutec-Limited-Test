@@ -1,22 +1,20 @@
-// import Login from '@/views/user/login/index.vue';
-
-import Dashboard from '@/views/dashboard/index.vue';
-import Device from '@/views/device/index.vue';
+import Basic_A1 from '@/views/basic_a1/index.vue';
+import Basic_A2 from '@/views/basic_a2/index.vue';
 
 const routes = [
     {
         path: '/',
-        name: 'Dashboard',
-        component: Dashboard,
+        name: 'Basic_A1',
+        component: Basic_A1,
         meta: {
             requiresAuth: true,
             layout: 'default', // header, footer, nav
         },
     },
     {
-        path: '/device',
-        name: 'Device',
-        component: Device,
+        path: '/basic_a2',
+        name: 'Basic_A2',
+        component: Basic_A2,
         meta: {
             requiresAuth: true,
             layout: 'default', // header, footer, nav

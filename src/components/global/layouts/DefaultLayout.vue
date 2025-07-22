@@ -1,9 +1,9 @@
 <template>
     <div class="d-layout">
-        <Nav />
+        <!-- <Nav /> -->
 
         <div class="d-layout-main">
-            <Header />
+            <!-- <Header /> -->
             <slot />
             <Footer />
         </div>
@@ -12,7 +12,7 @@
 
 <script setup>
     import Nav from '@/components/ui/Nav.vue';
-    import Header from '@/components/ui/Header.vue';
+    // import Header from '@/components/ui/Header.vue';
     import Footer from '@/components/ui/Footer.vue';
 </script>
 

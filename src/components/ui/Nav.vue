@@ -1,15 +1,5 @@
 <template>
     <nav>
-        <div class="sidebar">
-            <div class="logo">
-                <div class="icon"></div>
-            </div>
-            <div class="menu">
-                <div class="m-list">帳號設定</div>
-                <div class="m-list">會員充值</div>
-                <div class="m-list">保固服務</div>
-            </div>
-        </div>
         <div class="history">
             <h3>導覽</h3>
             <router-link
@@ -23,13 +13,6 @@
                 {{ item.name }}
             </router-link>
         </div>
-        <div class="upgrade">
-            <div class="u-list logout">
-                <!-- <Star /> -->
-                升級方案
-            </div>
-            <div class="u-list text-xs">擁有更多最佳模型的存取權限</div>
-        </div>
     </nav>
 </template>
 
@@ -37,20 +20,10 @@
     import { reactive, ref } from 'vue';
     import { useRouter } from 'vue-router';
 
-    // api
-    // import { logout } from '@/api/apiClient';
-
-    // utils
-    // import { openLoading, closeLoading } from '@/utils/useLoading';
-    // import { eraseCookie } from '@/utils/cookie';
-
-    // svg
-    // import Star from '@/assets/images/star.svg';
-
     const items = ref([
-        { name: '用電追蹤', path: '/' },
-        { name: '能源報告', path: '/device' },
-        { name: '管理用電', path: '/settings' },
+        { name: '基礎需求', path: '/' },
+        { name: '基礎需求 A1', path: '/basic_a2' },
+        { name: '基礎需求 A2', path: '/basic_a3' },
     ]);
 
     const router = useRouter();
