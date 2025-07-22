@@ -1,13 +1,25 @@
 <template>
     <div class="square" ref="squareRef">
-        <div class="square-dom" :style="{ 'offset-path': `path('${pathTopLeft}')` }" />
-        <div class="square-dom" :style="{ 'offset-path': `path('${pathBottomRight}')` }" />
+        <div
+            class="square-dom"
+            :class="{ 'animation-state': props.status == 'stop' }"
+            :style="{ 'offset-path': `path('${pathTopLeft}')` }"
+        />
+        <div
+            class="square-dom"
+            :class="{ 'animation-state': props.status == 'stop' }"
+            :style="{ 'offset-path': `path('${pathBottomRight}')` }"
+        />
         <div class="square-box" />
     </div>
 </template>
 
 <script setup lang="ts">
     import { ref, reactive, computed, watch, watchEffect, onMounted } from 'vue';
+
+    const props = defineProps<{
+        status?: string;
+    }>();
 
     const squareRef = ref();
     const pathTopLeft = ref('');
@@ -26,26 +38,26 @@
 
         // 左下角起始點
         pathTopLeft.value = buildPath(
-            `M${r},2 
-            H${w - r} 
-            A${r},${r},0,0,1,${w - 2},${r} 
-            V${h - r} 
-            A${r},${r},0,0,1,${w - r},${h - 2} 
-            H${r} 
-            A${r},${r},0,0,1,2,${h - r} 
+            `M${r},2
+            H${w - r}
+            A${r},${r},0,0,1,${w - 2},${r}
+            V${h - r}
+            A${r},${r},0,0,1,${w - r},${h - 2}
+            H${r}
+            A${r},${r},0,0,1,2,${h - r}
             V${r} A${r},${r},0,0,1,${r},2`
         );
 
         // 右下角起始點
         pathBottomRight.value = buildPath(`
-            M${w - r},${h - 2} 
-            H${r} 
-            A${r},${r},0,0,1,2,${h - r} 
-            V${r} 
-            A${r},${r},0,0,1,${r},2 
-            H${w - r} 
-            A${r},${r},0,0,1,${w - 2},${r} 
-            V${h - r} 
+            M${w - r},${h - 2}
+            H${r}
+            A${r},${r},0,0,1,2,${h - r}
+            V${r}
+            A${r},${r},0,0,1,${r},2
+            H${w - r}
+            A${r},${r},0,0,1,${w - 2},${r}
+            V${h - r}
             A${r},${r},0,0,1,${w - r},${h - 2}
         `);
     };
@@ -93,6 +105,11 @@
             offset-rotate: auto;
             offset-distance: 0%;
             animation: move 2s ease infinite;
+        }
+
+        .animation-state {
+            animation-play-state: paused;
+            opacity: 0;
         }
 
         // .animation-top-left {

@@ -5,7 +5,7 @@
             :key="selected"
             :style="{ gridTemplateColumns: `repeat(${squareCols}, 1fr)` }"
         >
-            <Square v-for="(num, index) in squareCount" :key="index" />
+            <Square v-for="(value, index) in squareList" :key="index" :status="value" />
         </div>
 
         <br />
@@ -16,7 +16,7 @@
                 v-for="(btn, index) in btnList"
                 :key="index"
                 :class="{ active: selected === btn }"
-                @click="changeView(btn)"
+                @click="changeSquare(btn)"
             >
                 {{ btn }}
             </button>
@@ -25,10 +25,25 @@
 
         <!-- 亂數開關 -->
         <div class="radio-items">
-            <input type="radio" id="all" name="contact" value="email" checked />
+            <input
+                type="radio"
+                id="all"
+                name="all"
+                value="all"
+                v-model="radio"
+                @change="clickRadio"
+                checked
+            />
             <label for="all">all</label>
 
-            <input type="radio" id="random" name="contact" value="email" />
+            <input
+                type="radio"
+                id="random"
+                name="random"
+                value="random"
+                v-model="radio"
+                @change="clickRadio"
+            />
             <label for="random">random</label>
         </div>
     </div>
@@ -40,23 +55,49 @@
     import Square from '@/components/ui/Square.vue';
 
     const btnList = reactive<string[]>(['1x1', '3x3', '5x5', '10x10']);
+    const squareList = ref<string[]>([]);
     const selected = ref('1x1');
+    const radio = ref('all');
 
-    const changeView = (btn: string) => {
+    const changeSquare = (btn: string) => {
         selected.value = btn;
+        radio.value = 'all';
     };
 
-    // 行排
+    const clickRadio = () => {
+        if (radio.value === 'random') {
+            squareList.value.forEach((val, index) => {
+                if (Math.random() < 0.5) squareList.value[index] = 'stop';
+            });
+        } else {
+            squareList.value.forEach((val, index) => {
+                if (Math.random() < 0.5) squareList.value[index] = 'normal';
+            });
+        }
+    };
+
+    // 行
     const squareCols = computed(() => {
         const [cols] = selected.value.split('x').map(Number);
         return cols;
     });
 
     // 總數計算
-    const squareCount = computed(() => {
+    const squareCount = () => {
         let [cols, rows] = selected.value.split('x').map(Number);
-        console.log(cols, rows);
-        return cols * rows;
+        const count = cols * rows;
+        const list = Array.from({ length: count }, () => 'normal');
+        squareList.value = list;
+
+        console.log('create:', squareList.value);
+    };
+
+    watch(selected, () => {
+        squareCount();
+    });
+
+    onMounted(() => {
+        squareCount();
     });
 </script>
 
