@@ -3,7 +3,7 @@ import Basic_A2 from '@/views/basic_a2/index.vue';
 
 const routes = [
     {
-        path: '/',
+        path: '/vue-squares/',
         name: 'Basic_A1',
         component: Basic_A1,
         meta: {
