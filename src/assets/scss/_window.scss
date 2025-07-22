@@ -1,0 +1,25 @@
+// @import '@/assets/scss/_variables.scss';
+@use '_forward' as *;
+
+::-moz-selection {
+    background: $deep_blue;
+    color: $white;
+}
+::selection {
+    background: $deep2_blue;
+    color: $white;
+}
+::-webkit-scrollbar {
+    background: $white; // srcoll bar background
+    width: 10px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: $deep_blue;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: $deep2_blue;
+}
